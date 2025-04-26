@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-jj^%sos8s8mbxf%#t^mj8rh9k&(9j9uuwq*m8+2+$=1n%bo0*r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'verbose-engine-gpq7rxpp9jf9gwp-8000.app.github.dev']
 
 INSTALLED_APPS = [
     "django.contrib.admin",

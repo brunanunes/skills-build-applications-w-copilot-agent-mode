@@ -6,13 +6,16 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = 'http://localhost:8000/'
+    base_urls = [
+        'https://verbose-engine-gpq7rxpp9jf9gwp-8000.app.github.dev/',
+        'http://localhost:8000/'
+    ]
     return Response({
-        'users': base_url + 'api/users/?format=api',
-        'teams': base_url + 'api/teams/?format=api',
-        'activities': base_url + 'api/activities/?format=api',
-        'leaderboard': base_url + 'api/leaderboard/?format=api',
-        'workouts': base_url + 'api/workouts/?format=api'
+        'users': [url + 'api/users/?format=api' for url in base_urls],
+        'teams': [url + 'api/teams/?format=api' for url in base_urls],
+        'activities': [url + 'api/activities/?format=api' for url in base_urls],
+        'leaderboard': [url + 'api/leaderboard/?format=api' for url in base_urls],
+        'workouts': [url + 'api/workouts/?format=api' for url in base_urls]
     })
 
 class UserViewSet(viewsets.ModelViewSet):
